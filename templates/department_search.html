@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    
+     <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+        <title>  Trent University </title>
+
+    </head>
+   <body>
+       
+
+         <br>   
+
+<!-- ####################################################  NAV BAR  ####################################################3-->
+
+<header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #154734;">
+        <div class="container">
+        <img src = "static/copy_log_Sustainability Office_wh-01.png" alt = "trent university logo" height="110" width="280" style='margin-left:-80px;'/><br>
+          <a class="navbar-brand mr-3" href="/"    ><h2 style="color: #ffffff;">SDGs Management</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+
+              
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav" style="color: #ffffff;">
+                <a class="nav-item nav-link" style="color: #ffffff;" href="{{ url_for('sql_database') }}"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Home Page </a>
+                
+      </div>
+     
+      </div>
+                
+              
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+        <br>
+        <br>
+        <div class="alert alert-info" role="alert">
+        <center><strong>Type functional area:</strong></center> 
+        </div>
+
+        <form class="" method="post" action="/search_department_display" 
+         style="margin:auto;max-width:600px">
+            <center><input type="text" placeholder="Type any functional area   " name="department">
+            <button type="submit">SEARCH FUNCTIONAL AREA  <i class="fa fa-search"></i>
+            </button></center>
+        
+
+
+         <table class= "tabel table-hover" style="table-layout: fixed; width:100%;">
+            <tr>
+              <td>
+                
+                  <button class="btn btn-primary"  type="button" onclick="window.location.href='{{ url_for( 'post_for_department',department='Academic' )  }}';" style="width: 150px; "> Academic </button><br>
+                
+              </td>
+
+              <td>
+                
+                  <button class="btn btn-success"  type="button" onclick="window.location.href='{{ url_for( 'post_for_department',department='Research' )  }}';" style="width: 150px; "> Research </button><br>
+                
+              </td>
+
+              <td>
+                
+                  <button class="btn btn-warning"  type="button" onclick="window.location.href='{{ url_for( 'post_for_department',department='Food' )  }}';"  style="width: 150px; "> Food </button><br>
+                
+              </td>
+
+            </tr>
+            <br>
+
+            <tr>
+
+            <td>
+                
+                  <button class="btn btn-warning"  type="button" onclick="window.location.href='{{ url_for( 'post_for_department',department='Student Groups' )  }}';" style="width: 150px; "> Student Groups </button><br>
+                
+              </td>
+
+              <td>
+                  <button class="btn btn-primary"  type="button" onclick="window.location.href='{{ url_for( 'post_for_department',department='Colleges' )  }}';" style="width: 150px; "> Colleges </button><br>
+                  
+                
+              </td>
+
+              <td>
+                
+                  <button class="btn btn-success"  type="button" onclick="window.location.href='{{ url_for( 'post_for_department',department='Facilities' )  }}';" style="width: 150px; "> Facilities </button><br>
+                
+              </td>
+
+              </tr>
+              <br>
+              <tr>
+              <td>
+                
+                  <button class="btn btn-success"  type="button" onclick="window.location.href='{{ url_for( 'post_for_department',department='Grounds' )  }}';" style="width: 150px; "> Grounds </button><br>
+                
+              </td>
+
+              <td>
+                
+                  <button class="btn btn-warning"  type="button" onclick="window.location.href='{{ url_for( 'post_for_department',department='Housing' )  }}';" style="width: 150px; "> Housing </button><br>
+                
+              </td>
+
+              <td>
+                  <button class="btn btn-primary"  type="button" onclick="window.location.href='{{ url_for( 'post_for_department',department='Operations' )  }}';" style="width: 150px; "> Operations </button><br>
+                  
+                
+              </td>
+
+              </tr>
+
+
+
+            </form>
+       
+        <p></p>
+        </center>
+</body>
+</html

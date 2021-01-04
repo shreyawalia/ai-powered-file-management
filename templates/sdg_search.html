@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+          
+          <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+        <title>  Trent University </title>
+
+    </head>
+   <body> 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+       
+
+         <br>   
+
+<!-- ####################################################  NAV BAR  ####################################################3-->
+
+<header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #154734;">
+        <div class="container">
+        <img src = "static/copy_log_Sustainability Office_wh-01.png" alt = "trent university logo" height="100" width="250" style='margin-left:-80px;'/><br>
+          <a class="navbar-brand mr-3" href="/"    ><h2 style="color: #ffffff;">SDGs Management</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+
+              
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav" style="color: #ffffff;">
+                <a class="nav-item nav-link" style="color: #ffffff;" href="{{ url_for('sql_database') }}"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Home Page </a>
+                
+      </div>
+     
+      </div>
+                
+              
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    <br>
+
+        
+        <div class="alert alert-info" role="alert">
+        <center><strong>Type SDG goal number.</strong></center> 
+        </div>
+        
+        <form class="" method="post" action="/search"  style="margin:auto;max-width:600px">
+            <center><input type="text" placeholder="Search by SDG" name="sdg">
+            <button type="submit">SEARCH SDG  <i class="fa fa-search"></i>
+            </button></center>
+
+            <br>
+
+           <table class= "tabel table-hover" style="table-layout: fixed; width:100%;">
+            <tr>
+              <td>
+                <div class="container" >
+                  <img class="rounded" src="static/goal1.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='1'  )  }}';" style=" width:100%;"> 
+                </div>
+              </td>
+
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal2.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='2' )  }}';" style="width:100%;"> 
+                </div>
+              </td>
+
+              <td>
+              <div class="container">
+                <img class="rounded" src="static/goal3.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='3' )  }}';" style="width:100%;"></div>
+              </td>
+
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal4.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='4' )  }}';" style="width:100%;"> 
+                </div>
+              </td>
+
+            </tr>
+
+            <tr> 
+
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal5.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='5' )  }}';" style="width:100%;"> 
+                </div>
+              </td>
+
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal6.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='6' )  }}';" style="width:100%;"> 
+                </div>
+              </td>
+
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal7.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='7' )  }}';" style="width:100%;"> 
+                </div>
+              </td>
+
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal8.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='8' )  }}';" style="width:100%;"> 
+                </div>
+              </td>
+
+            </tr>
+
+            <tr>
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal9.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='9' )  }}';" style="width:100%;"> 
+                </div>
+              </td>
+
+              
+
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal10.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='10' )  }}';" style="width:100%;"> 
+                </div>
+              </td>
+
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal11.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='11' )  }}';" style="width:100%;"> 
+                </div>
+              </td>
+            
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal12.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='12' )  }}';" style="width:100%;"> 
+                </div>
+              </td>
+
+            </tr>
+
+            <tr>
+            
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal13.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='13' )  }}';" style="width:100%;"> 
+                </div>
+              </td>
+
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal14.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='14' )  }}';" style="width:100%;"> 
+                </div>
+              </td>
+
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal15.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='15' )  }}';" style="width:100%;"> 
+                </div>
+              </td>
+
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal16.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='16' )  }}';" style="width:100%;"> 
+                </div>
+              </td>
+
+
+            </tr>
+
+            <tr>
+              <td>
+                <div class="container">
+                  <img class="rounded" src="static/goal17.png" onclick="window.location.href='{{ url_for( 'post_for_sdg', sdg='17' )  }}';" style="width:100%;"> 
+                </div>
+              </td> 
+            </tr>
+
+              
+           </table>   
+        
+
+        <br>
+        
+       
+        
+        
+        
+        </form>
+        
+        
+</body>
+</html>

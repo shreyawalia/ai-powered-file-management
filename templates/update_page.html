@@ -1,0 +1,231 @@
+<html>
+    <head>
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+        <title>  Trent University </title>
+
+    </head>
+   <body>
+       
+
+         <br>   
+
+<!-- ####################################################  NAV BAR  ####################################################3-->
+
+<header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #154734;">
+        <div class="container">
+        <img src = "static/copy_log_Sustainability Office_wh-01.png" alt = "trent university logo" height="110" width="280" style='margin-left:-80px;'/><br>
+          <a class="navbar-brand mr-3" href="/"    ><h2 style="color: #ffffff;">SDGs Management</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+
+              
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav" style="color: #ffffff;">
+                <a class="nav-item nav-link" style="color: #ffffff;" href="{{ url_for('sql_database') }}"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Home Page </a>
+                <a class="nav-item nav-link" style="color: #ffffff;" href="{{ url_for('predict_url_2') }}">&emsp;&emsp; Predict SDG</a>
+                
+      </div>
+     
+      </div>
+                
+              
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+         <br>   
+<!-- ####################################################   UPDATE DATA ####################################################3-->
+        <br>
+    <br>
+    <br>  
+        <div class ='row'>
+        <div style='margin-left:100px;'>
+          {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                  <strong>{{ message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button></strong>
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+            </div>
+            </div><br>
+            <div style='margin-left:100px;'>
+            
+            <div style='padding-top: 2px; padding-left:0px;'></div>
+        </div> <!--ends intro -->
+
+        <br>
+       <div class ='row'>
+
+        {% block content %}
+        {% if 'query_edit' in request.url %}
+        <div style='margin-left: 100px; width: 45%;'>
+        <div class="alert alert-info" role="alert">
+         <h2><strong>Update/Modify your details.</strong></h2>  
+        </div>
+        <h3>Enter updated details:</h3>
+        {% for eresult in eresults %}
+
+        <form action = "edit" method = "POST" enctype="multipart/form-data">
+         <p>Today's date: <input class="form-control" type = "date" name = "date" style='width: 100%;' value=
+         '{{eresult["date"]}}' required=True/></p>
+         <p>Name of the person entering details: <input class="form-control" type = "text" name = "entered_by" style='width: 100%;' value='{{eresult["entered_by"]}}' required=True/></p>
+         Campus functional area:<br>
+        <table class = 'table table-hover' style = 'margin-left: 0px; margin-right: 0px; width: 100%;'>
+          <tr>
+              <td><label><input type="checkbox" value="Academic" name="department[]" /> Academic </label><br></td>
+              <td><label><input type="checkbox" value="Research" name="department[]" /> Research </label><br></td>
+              <td><label><input type="checkbox" value="Food" name="department[]" /> Food </label><br></td>
+          <tr>
+              <td><label><input type="checkbox" value="Student Groups" name="department[]" /> Student Groups </label><br></td>
+              <td><label><input type="checkbox" value="Operations" name="department[]" /> Operations </label><br></td>
+              <td><label><input type="checkbox" value="Facilities" name="department[]" /> Facilities </label><br></td>
+          </tr>
+              <td><label><input type="checkbox" value="Grounds" name="department[]" /> Grounds </label><br></td>
+              <td><label><input type="checkbox" value="Housing" name="department[]" /> Housing </label><br></td>
+              <td><label><input type="checkbox" value="Colleges" name="department[]" /> Colleges </label><br></td>
+          </tr>
+
+        </table>
+         <p>Title: <input class="form-control" type = "text" name = "title" style='width: 100%;' value='{{eresult["title"]}}' required=True/></p>
+         <p>About: <textarea class="form-control" type = "text" name = "about" style="margin:0px; width:100%; height: 93px;" placeholder="Enter details" required=True>{{ eresult['about'] }}</textarea></p>
+
+        Select the relevant SDG/SDGs manually.<br>
+           <label><input type="checkbox" value=" 1 " name="sdg[]" /> 1. No poverty </label><br>
+           <label><input type="checkbox" value=" 2 " name="sdg[]" /> 2. Zero hunger </label><br>
+           <label><input type="checkbox" value=" 3 " name="sdg[]" /> 3. Good health and well being </label><br>
+           <label><input type="checkbox" value=" 4 " name="sdg[]" /> 4. Quality education</label><br>
+           <label><input type="checkbox" value=" 5 " name="sdg[]" /> 5. Gender equality</label><br>
+           <label><input type="checkbox" value=" 6 " name="sdg[]" /> 6. Clean water and sanitation </label><br>
+           <label><input type="checkbox" value=" 7 " name="sdg[]" /> 7. Affordable and clean energy</label><br>
+           <label><input type="checkbox" value=" 8 " name="sdg[]" /> 8. Decent work and economic growth</label><br>
+           <label><input type="checkbox" value=" 9 " name="sdg[]" /> 9. Industry, innovation and infrastructure</label><br>
+           <label><input type="checkbox" value=" 10 " name="sdg[]" /> 10. Reduced inequalities</label><br>
+           <label><input type="checkbox" value=" 11 " name="sdg[]" /> 11. Sustainable cities and communities</label><br>
+           <label><input type="checkbox" value=" 12 " name="sdg[]" /> 12. Responsible consumption and production</label><br>
+           <label><input type="checkbox" value=" 13 " name="sdg[]" /> 13. Climate action </label><br>
+           <label><input type="checkbox" value=" 14 " name="sdg[]" /> 14. Life below water</label><br>
+           <label><input type="checkbox" value=" 15 " name="sdg[]" /> 15. Life on land</label><br>
+           <label><input type="checkbox" value=" 16 " name="sdg[]" /> 16. Peace, justice and strong intuitions</label><br>
+           <label><input type="checkbox" value=" 17 " name="sdg[]" /> 17. Partnerships for the goals</label><br>
+
+
+
+
+        <br> 
+          Do you want to upload a file?
+           <div class="question-answer" required=True>
+              <label><input type="radio" value='Yes' name="upload" />Yes</label><br>
+              <label><input type="radio" value='No' name="upload" />No</label><br>
+            </div> 
+
+        <br>
+          <input type = "file" name = "other_file"  value='{{eresult["name"]}}'/>
+          <br>
+
+         <input type ="hidden" name = "old_date" value='{{eresult["date"]}}' />
+         <input type ="hidden" name = "old_title" value='{{eresult["title"]}}' />
+
+         
+
+         <br>
+
+
+
+
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus" > </i>  Update data</button>
+
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to update?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+          <div class="modal-body">
+          
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Yes, update!</button>
+          </div>
+          </div>
+          </div>
+          </div>  <!-- END Modal -->
+               
+       </form>
+        </div>
+
+        
+
+
+
+
+      
+
+    <div style='margin-left: 20px; width: 45%;'>
+      <main role="main" class="container">
+      <div class="row">
+        <div class="col-md">
+          <div class="content-section" style="background-color: #ffffff">
+            
+            <p class='text'><center><strong>Click below options.</strong></center><br>
+              <ul class="list-group" >
+                <li class="list-group-item list-group-item-light" style="background-color: #B65735">
+                <h4><a href = "/view" style="color: #ffffff"><i class="far fa-eye" ></i>  View all the records.</a></h4> 
+                </li><br>
+                <li class="list-group-item list-group-item-light" style="background-color: #B65735">
+                <h4><a href = "/predict_url" style="color: #ffffff"> <i class="fas fa-search"></i> Predict SDGs.</a></h4>
+                </div></li>
+                
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+        
+
+
+        
+        
+        
+        </div>
+        
+    </div>
+   {% endfor %}
+   {% else %}
+
+{% endif %}
+    {% endblock content %}
+  </body>
+  </html>
