@@ -3,8 +3,10 @@ File management system with auto document classification
 
 To run the project:
 
-Download all the files and folders in the repository other than the model creation folder.
+Download the repository.
 
-Run the app.py file
+Open command prompt. 
+Go to the file location. 
+Run the python app.py command.
 
 Make sure that port port 5000 is available
